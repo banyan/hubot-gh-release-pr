@@ -1,6 +1,6 @@
 # hubot-gh-release-pr
 
-A hubot script that does the things
+A hubot script to create GitHub's PR for release
 
 See [`src/gh-release-pr.coffee`](src/gh-release-pr.coffee) for full documentation.
 
@@ -17,8 +17,3 @@ Then add **hubot-gh-release-pr** to your `external-scripts.json`:
 ```
 
 ## Sample Interaction
-
-```
-user1>> hubot hello
-hubot>> hello!
-```
