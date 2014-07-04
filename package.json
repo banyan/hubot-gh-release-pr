@@ -1,19 +1,16 @@
 {
   "name": "hubot-gh-release-pr",
-  "description": "A hubot script that does the things",
+  "description": "A hubot script to create GitHub's PR for release",
   "version": "0.0.1",
   "author": " <ameutau@gmail.com>",
   "license": "MIT",
-  "keywords": [
-    "hubot",
-    "hubot-scripts"
-  ],
+  "keywords": ["hubot", "hubot-scripts"],
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-gh-release-pr.git"
+    "url": "git://github.com/banyan/hubot-gh-release-pr.git"
   },
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-gh-release-pr/issues"
+    "url": "https://github.com/banyan/hubot-gh-release-pr/issues"
   },
   "dependencies": {
     "coffee-script": "^1.7.0",
@@ -33,6 +30,8 @@
     "gulp-plumber": "^0.6.3",
     "gulp-sourcemaps": "^0.4.1",
     "gulp-util": "^2.2.19",
+    "hubot": "^2.7.5",
+    "hubot-mock-adapter": "^1.0.0",
     "power-assert": "^0.7.2",
     "sinon": "^1.10.2"
   },
