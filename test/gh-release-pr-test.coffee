@@ -1,16 +1,35 @@
-assert = require 'power-assert'
-sinon = require 'sinon'
+assert      = require 'power-assert'
+sinon       = require 'sinon'
+Hubot       = require 'hubot'
+TextMessage = Hubot.TextMessage
+GitHubApi   = require 'github'
 
 describe 'gh-release-pr', ->
-  beforeEach ->
-    @robot =
-      respond: sinon.spy()
-      hear: sinon.spy()
+  beforeEach (done) ->
+    @ghReleasePrToken = process.env.GH_RELEASE_PR_TOKEN
+    @ghReleasePrUser  = process.env.GH_RELEASE_PR_USER
 
-    require('../src/gh-release-pr')(@robot)
+    process.env.GH_RELEASE_PR_TOKEN = 'bogus-token'
+    process.env.GH_RELEASE_PR_USER  = 'foo'
 
-  it 'registers a respond listener', ->
-    assert.ok(@robot.respond.calledWith(/hello/))
+    @user  = null
+    @robot = new Hubot.loadBot null, 'mock-adapter', false, "Hubot"
+    @robot.adapter.on 'connected', =>
+      require('../src/gh-release-pr')(@robot)
+      @user = @robot.brain.userForId('1', { name: 'jasmine' })
+      done()
+    @robot.run()
 
-  it 'registers a hear listener', ->
-    assert.ok(@robot.hear.calledWith(/orly/))
+  afterEach ->
+    @server.restore()
+    @robot.shutdown()
+
+    process.env.GH_RELEASE_PR_TOKEN = @ghReleasePrToken
+    process.env.GH_RELEASE_PR_USER  = @ghReleasePrUser
+
+  xit 'respond to release', (done) ->
+    @robot.adapter.on 'send', (envelope, strings) ->
+      console.log "strings: #{strings}"
+      done()
+
+    @robot.receive(new TextMessage(@user, 'hubot release repo production'))
