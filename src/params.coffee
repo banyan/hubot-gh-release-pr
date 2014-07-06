@@ -7,7 +7,8 @@
 #
 # This kind of nested API, sinon.js (mock) can't work well.
 # Since node-github is tested itself, so I end up to test as mock,
-# instead I choose to use params object whether arguments are propely created or not.
+# instead I choose to use params object whether arguments are
+# propely created or not.
 
 qs = require 'qs'
 
