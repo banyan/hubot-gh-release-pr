@@ -16,17 +16,19 @@ Then add **hubot-gh-release-pr** to your `external-scripts.json`:
 ["hubot-gh-release-pr"]
 ```
 
-## Examples
-
-```json
-user1>> hubot release test-repo production
-hubot>> Release PR is sent to test-repo
-```
-
 ## How it works
 
-`hubot-gh-release-pr` creates a PR for release.
-The default head branch is `master` and can be changed as you like.
+1. Ask hubot to create PR
+1. hubot create PR via GitHub API.
+1. The default head branch is `master`, base branch would be that you specified.
+
+## Examples
+
+```
+user1>> hubot release test-repo production
+user1>> hubot release test-repo staging
+user1>> hubot release test-repo edge
+```
 
 ## Configuration:
 
