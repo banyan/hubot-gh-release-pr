@@ -22,7 +22,7 @@ module.exports = (robot) ->
     environment = msg.match[2].trim()
 
     client.pullRequests.create(
-      params.toCreatePR(repo, environment, msg, customBranch)
+      params.toCreatePR(repo, environment, msg)
     ) (err, res) ->
       throw err if err
       msg.send "Release PR is sent to #{repo}"
