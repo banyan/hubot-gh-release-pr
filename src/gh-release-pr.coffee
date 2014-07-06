@@ -2,16 +2,7 @@
 #   A hubot script to create GitHub's PR for release
 #
 # Configuration:
-#   required ENVs:
-#     * GH_RELEASE_PR_TOKEN
-#     * GH_RELEASE_PR_USER
-#
-#   optional ENVs:
-#     * GH_RELEASE_PR_CUSTOM_BRANCH
-#     * GH_RELEASE_PR_GITHUB_DEBUG
-#     * GH_RELEASE_PR_GITHUB_HOST
-#     * GH_RELEASE_PR_GITHUB_PATH_PREFIX
-#     * GH_RELEASE_PR_GITHUB_PATH_PROTOCOL
+#   See README.md
 #
 # Commands:
 #   hubot release <repo-name> <environment>
