@@ -50,13 +50,13 @@ gulp.task 'compile', ['lint'], ->
 
 gulp.task 'istanbul', ['clean:coverage', 'compile'], (cb) ->
   gulp.src ['./compile/src/**/*.js']
-    #Covering files
+    # Covering files
     .pipe $.istanbul()
     .on 'finish', ->
       gulp.src ['./compile/test/**/*.js'], {cwd: __dirname}
         .pipe $.plumber()
         .pipe $.mocha()
-        #Creating the reports after tests runned
+        # Creating the reports after tests runned
         .pipe $.istanbul.writeReports()
         .on 'finish', ->
           process.chdir __dirname
