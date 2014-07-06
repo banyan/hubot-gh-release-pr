@@ -1,5 +1,5 @@
 # Note: This params object is created because of sinon.js.
-# I used node-github, and their API is like this.
+# I used node-github which API is like this:
 #
 # a = new GitHubAPI
 # a.b()
