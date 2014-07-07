@@ -1,7 +1,7 @@
 {
   "name": "hubot-gh-release-pr",
   "description": "A hubot script to create GitHub's PR for release",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "author": " <ameutau@gmail.com>",
   "license": "MIT",
   "keywords": [

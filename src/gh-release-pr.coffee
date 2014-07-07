@@ -17,9 +17,8 @@ module.exports = (robot) ->
   client = new GitHubApi params.toInit()
   client.authenticate params.toAuth()
 
-  robot.respond /release\s*(\w+)\s*(\w+)/i, (msg) ->
-    repo        = msg.match[1].trim()
-    environment = msg.match[2].trim()
+  robot.respond /release (.*)$/i, (msg) ->
+    [repo, environment] = msg.match[1].trim().split ' '
 
     client.pullRequests.create(
       params.toCreatePR(repo, environment, msg)
