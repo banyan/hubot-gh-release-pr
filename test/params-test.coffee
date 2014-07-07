@@ -78,11 +78,11 @@ describe 'params', ->
 
     context 'with custom branch', ->
       beforeEach ->
-        @customBranch = process.env.GH_RELEASE_PR_CUSTOM_BRANCH
-        process.env.GH_RELEASE_PR_CUSTOM_BRANCH = 'test-repo[repo]=original-test-repo&test-repo[base][production]=another-name-of-production&test-repo[head]=another-name-of-master'
+        @customBranch = process.env.GH_RELEASE_PR_CUSTOM_ENDPOINT
+        process.env.GH_RELEASE_PR_CUSTOM_ENDPOINT = 'test-repo[repo]=original-test-repo&test-repo[base][production]=another-name-of-production&test-repo[head]=another-name-of-master'
 
       afterEach ->
-        process.env.GH_RELEASE_PR_CUSTOM_BRANCH = @customBranch
+        process.env.GH_RELEASE_PR_CUSTOM_ENDPOINT = @customBranch
 
       it 'gets expected values', ->
         @subject = params.toCreatePR @repo, 'production', {message: user: name: 'foo'}

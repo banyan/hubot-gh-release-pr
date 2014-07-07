@@ -26,8 +26,8 @@ module.exports = {
     token: process.env.GH_RELEASE_PR_TOKEN
 
   toCreatePR: (repo, environment, msg) ->
-    customBranch = if process.env.GH_RELEASE_PR_CUSTOM_BRANCH
-      qs.parse(process.env.GH_RELEASE_PR_CUSTOM_BRANCH)[repo]
+    customBranch = if process.env.GH_RELEASE_PR_CUSTOM_ENDPOINT
+      qs.parse(process.env.GH_RELEASE_PR_CUSTOM_ENDPOINT)[repo]
     else
       null
 

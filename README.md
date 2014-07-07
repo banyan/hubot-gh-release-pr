@@ -25,6 +25,7 @@ Then add **hubot-gh-release-pr** to your `external-scripts.json`:
 ## Examples
 
 ```
+user1>> hubot release <repo-name> <base-branch>
 user1>> hubot release test-repo production
 user1>> hubot release test-repo staging
 user1>> hubot release test-repo edge
@@ -39,7 +40,7 @@ Required ENVs:
 
 Optional ENVs:
 
- * GH_RELEASE_PR_CUSTOM_BRANCH
+ * GH_RELEASE_PR_CUSTOM_ENDPOINT
  * GH_RELEASE_PR_GITHUB_DEBUG
  * GH_RELEASE_PR_GITHUB_HOST
  * GH_RELEASE_PR_GITHUB_PATH_PREFIX
