@@ -14,11 +14,11 @@ GitHubApi = require 'github'
 params    = require './params'
 
 module.exports = (robot) ->
-  client = new GitHubApi params.toInit()
-  client.authenticate params.toAuth()
-
   robot.respond /release (.*)$/i, (msg) ->
     [repo, environment] = msg.match[1].trim().split ' '
+
+    client = new GitHubApi params.toInit()
+    client.authenticate params.toAuth()
 
     client.pullRequests.create params.toCreatePR(repo, environment, msg), (err, res) ->
       throw err if err
