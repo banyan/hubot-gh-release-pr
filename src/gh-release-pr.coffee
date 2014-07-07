@@ -20,8 +20,6 @@ module.exports = (robot) ->
   robot.respond /release (.*)$/i, (msg) ->
     [repo, environment] = msg.match[1].trim().split ' '
 
-    client.pullRequests.create(
-      params.toCreatePR(repo, environment, msg)
-    ) (err, res) ->
+    client.pullRequests.create params.toCreatePR(repo, environment, msg), (err, res) ->
       throw err if err
       msg.send "Release PR is sent to #{repo}"
