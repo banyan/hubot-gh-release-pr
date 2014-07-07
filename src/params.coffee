@@ -26,17 +26,17 @@ module.exports = {
     token: process.env.GH_RELEASE_PR_TOKEN
 
   toCreatePR: (repo, environment, msg) ->
-    customBranch = if process.env.GH_RELEASE_PR_CUSTOM_ENDPOINT
+    customEndpoint = if process.env.GH_RELEASE_PR_CUSTOM_ENDPOINT
       qs.parse(process.env.GH_RELEASE_PR_CUSTOM_ENDPOINT)[repo]
     else
       null
 
     user: process.env.GH_RELEASE_PR_USER
-    repo: customBranch?.repo or repo
+    repo: customEndpoint?.repo or repo
     title: "#{@now()} #{environment} deployment by #{msg.message.user.name}"
     body: ""
-    base: customBranch?.base?[environment] or environment
-    head: customBranch?.head or 'master'
+    base: customEndpoint?.base?[environment] or environment
+    head: customEndpoint?.head or 'master'
 
   now: (d = new Date) ->
     pad = (s) -> if (s < 10) then "0#{s}" else s
