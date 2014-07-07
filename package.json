@@ -1,10 +1,13 @@
 {
   "name": "hubot-gh-release-pr",
   "description": "A hubot script to create GitHub's PR for release",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": " <ameutau@gmail.com>",
   "license": "MIT",
-  "keywords": ["hubot", "hubot-scripts"],
+  "keywords": [
+    "hubot",
+    "hubot-scripts"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/banyan/hubot-gh-release-pr.git"
@@ -14,7 +17,8 @@
   },
   "dependencies": {
     "coffee-script": "^1.7.0",
-    "github": "^0.2.0"
+    "github": "^0.2.0",
+    "qs": "^0.6.6"
   },
   "devDependencies": {
     "coveralls": "^2.10.1",
