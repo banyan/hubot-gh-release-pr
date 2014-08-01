@@ -11,10 +11,11 @@
 #   banyan
 
 GitHubApi = require 'github'
-params    = require './params'
 
 module.exports = (robot) ->
   robot.respond /release (.*)$/i, (msg) ->
+    params = require './params'
+
     [repo, environment] = msg.match[1].trim().split ' '
 
     client = new GitHubApi params.toInit()
